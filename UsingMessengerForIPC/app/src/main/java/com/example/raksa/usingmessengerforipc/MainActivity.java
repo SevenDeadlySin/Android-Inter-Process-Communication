@@ -13,13 +13,10 @@ public class MainActivity extends AppCompatActivity {
 
     boolean isBind = false;
 
-    MyService myService;
 
     ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder binder) {
-            MyService.MyLocalBinder myLocalBinder = (MyService.MyLocalBinder) binder;
-            myService = myLocalBinder.getService();
             isBind = true;
         }
 
@@ -52,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onUnbindButton(View view) {
-        unbindService(serviceConnection);
+        if (isBind){
+            unbindService(serviceConnection);
+        }
     }
 }
