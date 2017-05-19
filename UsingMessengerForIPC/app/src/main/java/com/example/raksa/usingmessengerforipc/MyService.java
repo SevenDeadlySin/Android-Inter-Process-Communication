@@ -31,8 +31,8 @@ public class MyService extends Service {
 
                     Message messageToActivity = Message.obtain(null,43);
                     Bundle toActivityBundle = new Bundle();
-                    bundle.putInt("result",result);
-                    messageToActivity.setData(bundle);
+                    toActivityBundle.putInt("result",result);
+                    messageToActivity.setData(toActivityBundle);
 
                     try {
                         activityMessenger.send(messageToActivity);

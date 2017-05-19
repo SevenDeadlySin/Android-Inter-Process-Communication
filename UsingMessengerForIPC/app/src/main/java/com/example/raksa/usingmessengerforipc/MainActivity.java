@@ -109,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
     public void onUnbindButton(View view) {
         if (isBind){
             unbindService(serviceConnection);
+            Toast.makeText(getApplicationContext(),"Service was unbinded !!!",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"There is no connection to the service !!",Toast.LENGTH_SHORT).show();
         }
     }
 }
